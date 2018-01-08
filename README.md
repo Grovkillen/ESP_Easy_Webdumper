@@ -31,3 +31,5 @@ LEGEND
 + Green is a feature already implemented
 - Red is on the todo-list
 ```
+
+![ESP Easy Webdumper GUI 2](Screenshot2.png)
