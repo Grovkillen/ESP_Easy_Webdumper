@@ -1,12 +1,15 @@
+ESP Easy Webdumper
+------------
+
 ![ESP Easy Webdumper GUI](Screenshot.png)
 
-Intro
+INTRO
 ------------
 **ESP Easy Webdumper** is originally a application to do screenshots of the ESP Easy web GUI for the wiki. I made it since the web interface is constantly changing and keeping up with the screenshots was getting more challenging when the project expands. Its a fun problem to overcome.
 
 You may use this tool for getting screenshots of your unit to be uploaded to the forum if you need help. A screenshot is a perfect start when trying to explain your problem and for other community members to see what you may have done wrong or need to be aware off. A nice side effect of the tool is that these screenshots and downloads of the rules and config files are a great way of keeping backups for your units.
 
-Features
+FEATURES
 ------------
 ```diff
 + Screenshot all pages, including subpages
