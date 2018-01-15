@@ -15,8 +15,8 @@ FEATURES
 + Screenshot all pages, including subpages
 + Download all rule files
 + Download the config.dat file
-- Batch run multiple IP addresses (NOT IMPLEMENTED)
-- Batch run scheadule for daily or weekly backups (NOT IMPLEMENTED)
++ Batch run multiple IP addresses (via batch file and command line switch /IP_NUMBER)
++ Batch run scheadule for daily or weekly backups (via batch file and command line switch /IP_NUMBER)
 ```
 
 EXTRA INFORMATION
@@ -24,6 +24,7 @@ EXTRA INFORMATION
 * **ONLY WINDOWS** is supported (Windows 10, Windows 8.1, Windows 8, Windows 7, and possibly older versions as well)
 * **APP_DATA.zip** is needed for the screenshots, download and place it in the same directory as the ESP Easy Webdumper exe file.
 * **Log files** for each webdump will be placed in the Log folder under the subfolder of that unit.
+* **Batch mode** is possible using a batch file and call the application with this switch: "ESP.Easy.Webdumper.exe /IP_NUMBER=<ip>". The app will exit once a dump is completed.
 
 I plan add more features on a weekly basis. Thanks for all the feedback!
 
@@ -33,6 +34,11 @@ LEGEND
 ```diff
 + Green is a feature already implemented
 - Red is on the todo-list
+
+
+DISCLAIMER
+------------
+* **GUI** is messed up on Windows 10 (at least) compared to Windows 7 (which I compile the exe on). I will try to fix this in future releases, BETA, but as of now I focus on the core function. The main problem comes from W10 willingness of showing the interface with zoom activated. Reverting it to 100% fixes some of the messiness.
 ```
 
 ![ESP Easy Webdumper GUI 2](Screenshot2.png)
