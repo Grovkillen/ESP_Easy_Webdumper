@@ -1,9 +1,8 @@
 // COMPILE_OPTS|C:\Users\jimwes\Desktop\ESP Easy Webdumper.exe|C:\Users\jimwes\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
 
 //Global variables (version is MAYOR.MINOR.MINIMAL)
-Let>VERSION=0.00.006
+Let>VERSION=0.00.007
 Let>APP_TITLE=ESP Easy Webdumper (%VERSION%)
-
 GoSub>STARTUP_OF_APP
 
 //Loop to let dialog1 stay alive and listen to interactions from user
@@ -316,10 +315,16 @@ END>DIALOG_MAIN
 
 //Load stuff
 SRT>STARTUP_OF_APP
-  Assigned>IP_NUMBER,IS_THE_IP_NUMBER
+  Assigned>IP_NUMBER,IS_THE_IP_NUMBER_ASSIGNED
+  GoSub>COMMAND_LINE_DEPLOY
   GoSub>URL_SUB_PAGES
   GoSub>DIALOG_MAIN
   GoSub>SET_DEFAULT_DIALOG_SETTINGS
+  If>HEADLESS_DUMPER=1
+    //Fix so that the cmd assigned number is restored...
+    Let>IP_NUMBER=IP_NUMBER_CMD
+    SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,%IP_NUMBER%
+  Endif>
   GoSub>CHECK_APP_DATA_ZIP_FILE
   If>APP_DATA_ZIP_FILE_EXISTS=1
     GoSub>NEEDED_FOLDERS
@@ -327,7 +332,31 @@ SRT>STARTUP_OF_APP
     GoSub>EXTERNAL_SCRIPT_FILES
   Endif>
   GoSub>LOAD_DIALOG_HANDLERS
+  If>HEADLESS_DUMPER=1
+    //Run automatically but with window open
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,Running from command line.%CRLF%%LOG_WINDOW_TEXT%
+    GoSub>GET_TIME_AND_DATE
+    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,####COMMAND LINE BATCH MODE####
+    GoSub>RUN_WEBDUMPER
+    CloseDialog>Dialog1
+    Exit>
+  Else>
+    //Open as normal...
+  Endif>
 END>STARTUP_OF_APP
+
+SRT>COMMAND_LINE_DEPLOY
+  If>IS_THE_IP_NUMBER_ASSIGNED=TRUE
+    GoSub>EVALUATE_IP
+    Let>HEADLESS_DUMPER=1
+    Let>IP_NUMBER_CMD=IP_NUMBER
+  Endif>
+  If>IP_NUMBER=0
+    //No ip to fetch...
+    Let>HEADLESS_DUMPER=0
+  Endif>
+END>COMMAND_LINE_DEPLOY
 
 SRT>LOAD_DIALOG_HANDLERS
   SetDialogProperty>Dialog1,,Caption,APP_TITLE
@@ -609,21 +638,21 @@ SRT>FETCH_SCREEN_DUMP
     Let>SAVE_AS=main
   Endif>
     GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
-    SetDialogProperty>Dialog1,LOG_WINDOW,Text,[ ]Screenshot of %SAVE_AS%.%CRLF%%LOG_WINDOW_TEXT%
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,[   ]Screenshot of %SAVE_AS%.%CRLF%%LOG_WINDOW_TEXT%
     GoSub>GET_TIME_AND_DATE
     WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] Taking screenshot of %SAVE_AS% page.
-    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#######COMMAND LINE BELOW#######
+    //WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#######COMMAND LINE BELOW#######
     Let>COMMAND_LINE_FOR_DUMPER=wkhtmltoimage.exe http://%IP_NUMBER%%PAGE_TO_FETCH% "%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%SAVE_AS%.png" & exit 0
-    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%COMMAND_LINE_FOR_DUMPER%]
+    //WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%COMMAND_LINE_FOR_DUMPER%]
     Let>RP_WINDOWMODE=0
     Let>RP_WAIT=1
     RunProgram>cmd /k c: & cd "%SCRIPT_DIR%\APP_DATA" & %COMMAND_LINE_FOR_DUMPER%
-    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#######COMMAND LINE ABOVE#######
+    //WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#######COMMAND LINE ABOVE#######
     GoSub>GET_TIME_AND_DATE
     WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] %SAVE_AS%.png saved.
     Let>FILES_CREATED=%FILES_CREATED%%CRLF%%SAVE_AS%.png
     GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
-    Let>REGEX_PATTERN=(\[ \]Screenshot of %SAVE_AS%\.)
+    Let>REGEX_PATTERN=(\[   \]Screenshot of %SAVE_AS%\.)
     RegEx>REGEX_PATTERN,LOG_WINDOW_TEXT,0,,,1,[X]Screenshot of %SAVE_AS%.,LOG_WINDOW_TEXT
     SetDialogProperty>Dialog1,LOG_WINDOW,Text,%LOG_WINDOW_TEXT%
     Wait>0.5
@@ -841,7 +870,7 @@ SRT>READ_SETTINGS_FILE
       ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,Checkboxes,Checkbox%k_ini%,TEMP_INI_SETTING
       Let>URL_SUB_PAGE_CHECKED_%k_ini%=TEMP_INI_SETTING
     Until>k_ini=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
-    ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,General,IP number,%IP_NUMBER%
+    ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,General,IP number,IP_NUMBER
   Else>
     Let>NO_DEFAULT_FILE_FOUND=1
     Let>DEBUG_LEVEL=0
