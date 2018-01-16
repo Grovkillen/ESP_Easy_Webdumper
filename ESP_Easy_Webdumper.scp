@@ -47,7 +47,912 @@ object Dialog1: TForm
       Caption = 'Main page'
       TabOrder = 0
     end
+    object CheckBox2: TCheckBox// COMPILE_OPTS|C:\Users\jimwes\Desktop\ESP Easy Webdumper.exe|C:\Users\jimwes\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
+
+//Global variables (version is MAYOR.MINOR.MINIMAL)
+Let>VERSION=0.00.008
+Let>APP_TITLE=ESP Easy Webdumper (%VERSION%)
+GoSub>STARTUP_OF_APP
+
+//Loop to let dialog1 stay alive and listen to interactions from user
+Label>WAITING_FOR_A_WHILE
+Let>WAIT_FOR_CROWS=0.02
+Wait>%WAIT_FOR_CROWS%
+Goto>WAITING_FOR_A_WHILE
+
+SRT>DIALOG_MAIN
+Dialog>Dialog1
+object Dialog1: TForm
+  Left = -1224
+  Top = 325
+  HelpContext = 5000
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'CustomDialog'
+  ClientHeight = 514
+  ClientWidth = 592
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -14
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = True
+  ShowHint = True
+  OnTaskBar = False
+  PixelsPerInch = 120
+  TextHeight = 16
+  object Panel1: TPanel
+    Left = 8
+    Top = 32
+    Width = 249
+    Height = 425
+    TabOrder = 0
+    object CheckBox1: TCheckBox
+      Left = 5
+      Top = 4
+      Width = 220
+      Height = 17
+      Caption = 'Main page'
+      TabOrder = 0
+    end
     object CheckBox2: TCheckBox
+      Left = 5
+      Top = 24
+      Width = 220
+      Height = 17
+      Caption = 'Config page'
+      TabOrder = 1
+    end
+    object CheckBox3: TCheckBox
+      Left = 5
+      Top = 44
+      Width = 220
+      Height = 17
+      Caption = 'Controllers page'
+      TabOrder = 2
+    end
+    object CheckBox4: TCheckBox
+      Left = 15
+      Top = 64
+      Width = 220
+      Height = 17
+      Caption = 'Controllers SUB page(s)'
+      TabOrder = 3
+    end
+    object CheckBox5: TCheckBox
+      Left = 5
+      Top = 84
+      Width = 220
+      Height = 17
+      Caption = 'Hardware page'
+      TabOrder = 4
+    end
+    object CheckBox6: TCheckBox
+      Left = 5
+      Top = 104
+      Width = 220
+      Height = 17
+      Caption = 'Devices page(s)'
+      TabOrder = 5
+    end
+    object CheckBox7: TCheckBox
+      Left = 15
+      Top = 124
+      Width = 220
+      Height = 17
+      Caption = 'Devices SUB page(s)'
+      TabOrder = 6
+    end
+    object CheckBox8: TCheckBox
+      Left = 5
+      Top = 144
+      Width = 236
+      Height = 17
+      Caption = 'Rule(s) [will be downloaded as .txt]'
+      TabOrder = 7
+    end
+    object CheckBox9: TCheckBox
+      Left = 5
+      Top = 164
+      Width = 240
+      Height = 17
+      Caption = 'Notifications page'
+      TabOrder = 8
+    end
+    object CheckBox10: TCheckBox
+      Left = 15
+      Top = 184
+      Width = 240
+      Height = 17
+      Caption = 'Notifications SUB page(s)'
+      TabOrder = 9
+    end
+    object CheckBox11: TCheckBox
+      Left = 5
+      Top = 204
+      Width = 240
+      Height = 17
+      Caption = 'Tools page'
+      TabOrder = 10
+    end
+    object CheckBox12: TCheckBox
+      Left = 15
+      Top = 224
+      Width = 240
+      Height = 17
+      Caption = 'Log page'
+      TabOrder = 11
+    end
+    object CheckBox13: TCheckBox
+      Left = 15
+      Top = 244
+      Width = 240
+      Height = 17
+      Caption = 'System Info page'
+      TabOrder = 12
+    end
+    object CheckBox14: TCheckBox
+      Left = 15
+      Top = 264
+      Width = 240
+      Height = 17
+      Caption = 'Advanced page'
+      TabOrder = 13
+    end
+    object CheckBox15: TCheckBox
+      Left = 15
+      Top = 284
+      Width = 240
+      Height = 17
+      Caption = 'JSON page'
+      TabOrder = 14
+    end
+    object CheckBox16: TCheckBox
+      Left = 15
+      Top = 304
+      Width = 240
+      Height = 17
+      Caption = 'Pinstate Buffer page'
+      TabOrder = 15
+    end
+    object CheckBox17: TCheckBox
+      Left = 15
+      Top = 324
+      Width = 240
+      Height = 17
+      Caption = 'WiFi Scan page'
+      TabOrder = 16
+    end
+    object CheckBox18: TCheckBox
+      Left = 15
+      Top = 344
+      Width = 240
+      Height = 17
+      Caption = 'I2C Scan page'
+      TabOrder = 17
+    end
+    object CheckBox19: TCheckBox
+      Left = 15
+      Top = 364
+      Width = 240
+      Height = 17
+      Caption = 'Flash page'
+      TabOrder = 18
+    end
+    object CheckBox20: TCheckBox
+      Left = 15
+      Top = 384
+      Width = 240
+      Height = 17
+      Caption = 'SD Card page'
+      TabOrder = 19
+    end
+    object CheckBox21: TCheckBox
+      Left = 15
+      Top = 404
+      Width = 240
+      Height = 17
+      Caption = 'Config [will be downloaded as .dat]'
+      TabOrder = 20
+    end
+  end
+  object BUTTON_ALL: tMSButton
+    Left = 10
+    Top = 4
+    Width = 75
+    Height = 25
+    Caption = 'Select all'
+    TabOrder = 1
+    DoBrowse = False
+    BrowseStyle = fbOpen
+  end
+  object BUTTON_NONE: tMSButton
+    Left = 90
+    Top = 4
+    Width = 87
+    Height = 25
+    Caption = 'Select none'
+    TabOrder = 2
+    DoBrowse = False
+    BrowseStyle = fbOpen
+  end
+  object BUTTON_CLIPBOARD: tMSButton
+    Left = 524
+    Top = 4
+    Width = 60
+    Height = 25
+    Hint = 'The log below is copied to your clipboard.'
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
+    Align = alCustom
+    Caption = 'Copy log'
+    TabOrder = 3
+    DoBrowse = False
+    BrowseStyle = fbOpen
+  end
+  object INPUT_2_PANEL: TPanel
+    Left = 8
+    Top = 461
+    Width = 578
+    Height = 52
+    Caption = ''
+    TabOrder = 4
+    object BUTTON_RUN_WEBDUMPER: tMSButton
+      Left = 510
+      Top = 2
+      Width = 65
+      Height = 48
+      Caption = 'RUN'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -23
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      DoBrowse = False
+      BrowseStyle = fbOpen
+    end
+    object INPUT_IP_ADDRESS: TEdit
+      Left = 260
+      Top = 2
+      Width = 249
+      Height = 48
+      Alignment = taCenter
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -32
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      Text = '192.168.0.123'
+    end
+    object BUTTON_SAVE_DEFAULT: tMSButton
+      Left = 0
+      Top = 29
+      Width = 142
+      Height = 22
+      Margins.Left = 2
+      Margins.Top = 2
+      Margins.Right = 2
+      Margins.Bottom = 2
+      Caption = 'Save default settings'
+      TabOrder = 0
+      DoBrowse = False
+      BrowseStyle = fbOpen
+    end
+  end
+  object MEMO_PANEL: TPanel
+    Left = 267
+    Top = 33
+    Width = 318
+    Height = 425
+    Caption = 'Panel3'
+    TabOrder = 5
+    object LOG_WINDOW: tMSMemo
+      Left = 1
+      Top = 1
+      Width = 316
+      Height = 414
+      Text = 'App started.'
+      ScrollBars = ssBoth
+      ScrollBarsAutoShowing = ssBoth
+      VertScrollBarStyles.ButtonSize = 21
+      HorzScrollBarStyles.ButtonSize = 21
+      Align = alClient
+      Color = 14513920
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -15
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      ExplicitHeight = 416
+    end
+  end
+end
+EndDialog>Dialog1
+END>DIALOG_MAIN
+
+//Load stuff
+SRT>STARTUP_OF_APP
+  Assigned>IP_NUMBER,IS_THE_IP_NUMBER_ASSIGNED
+  GoSub>COMMAND_LINE_DEPLOY
+  GoSub>URL_SUB_PAGES
+  GoSub>DIALOG_MAIN
+  GoSub>SET_DEFAULT_DIALOG_SETTINGS
+  If>HEADLESS_DUMPER=1
+    //Fix so that the cmd assigned number is restored...
+    Let>IP_NUMBER=IP_NUMBER_CMD
+    SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,%IP_NUMBER%
+  Endif>
+  GoSub>CHECK_APP_DATA_ZIP_FILE
+  If>APP_DATA_ZIP_FILE_EXISTS=1
+    GoSub>NEEDED_FOLDERS
+    GoSub>CREATE_MISSING_FOLDERS
+    GoSub>EXTERNAL_SCRIPT_FILES
+  Endif>
+  GoSub>LOAD_DIALOG_HANDLERS
+  If>HEADLESS_DUMPER=1
+    //Run automatically but with window open
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,Running from command line.%CRLF%%LOG_WINDOW_TEXT%
+    GoSub>GET_TIME_AND_DATE
+    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,####COMMAND LINE BATCH MODE####
+    GoSub>RUN_WEBDUMPER
+    CloseDialog>Dialog1
+    Exit>
+  Else>
+    //Open as normal...
+  Endif>
+END>STARTUP_OF_APP
+
+SRT>COMMAND_LINE_DEPLOY
+  If>IS_THE_IP_NUMBER_ASSIGNED=TRUE
+    GoSub>EVALUATE_IP
+    Let>HEADLESS_DUMPER=1
+    Let>IP_NUMBER_CMD=IP_NUMBER
+  Endif>
+  If>IP_NUMBER=0
+    //No ip to fetch...
+    Let>HEADLESS_DUMPER=0
+  Endif>
+END>COMMAND_LINE_DEPLOY
+
+SRT>LOAD_DIALOG_HANDLERS
+  SetDialogProperty>Dialog1,,Caption,APP_TITLE
+  AddDialogHandler>Dialog1,,OnClose,EXIT_APP
+  AddDialogHandler>Dialog1,BUTTON_RUN_WEBDUMPER,OnClick,RUN_WEBDUMPER
+  AddDialogHandler>Dialog1,BUTTON_NONE,OnClick,SELECT_NONE
+  AddDialogHandler>Dialog1,BUTTON_ALL,OnClick,SELECT_ALL
+  AddDialogHandler>Dialog1,BUTTON_CLIPBOARD,OnClick,COPY_TO_CLIPBOARD
+  AddDialogHandler>Dialog1,BUTTON_SAVE_DEFAULT,OnClick,SAVE_SETTINGS_FILE
+  Show>Dialog1
+  If>APP_DATA_ZIP_FILE_EXISTS=0
+      //Cannot proceed!
+    SetDialogProperty>Dialog1,BUTTON_RUN_WEBDUMPER,Enabled,False
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,The APP_DATA.zip file is%CRLF%missing, please download and%CRLF%place it in the same%CRLF%folder as the exe file.%CRLF%%CRLF%Close app...
+    SetDialogProperty>Dialog1,LOG_WINDOW,Color,255
+  Endif>
+END>LOAD_DIALOG_HANDLERS
+
+//Available sub pages to dump
+SRT>URL_SUB_PAGES
+  Let>URL_SUB_PAGE_1=
+  Let>URL_SUB_PAGE_2=/config
+  Let>URL_SUB_PAGE_3=/controllers
+  //index 1..3
+  Let>URL_SUB_PAGE_4=/controllers?index=
+  Let>URL_SUB_PAGE_4_MAX=3
+  Let>URL_SUB_PAGE_5=/hardware
+  //setpage 1..4
+  Let>URL_SUB_PAGE_6=/devices?setpage=
+  Let>URL_SUB_PAGE_6_MAX=3
+  //index 1..12
+  Let>URL_SUB_PAGE_7=/devices?index=
+  Let>URL_SUB_PAGE_7_MAX=12
+  Let>URL_SUB_PAGE_8=/rules
+  Let>URL_SUB_PAGE_8_MAX=4
+  Let>URL_SUB_PAGE_9=/notifications
+  //index 1..3
+  Let>URL_SUB_PAGE_10=/notifications?index=
+  Let>URL_SUB_PAGE_10_MAX=3
+  Let>URL_SUB_PAGE_11=/tools
+  Let>URL_SUB_PAGE_12=/log
+  Let>URL_SUB_PAGE_13=/sysinfo
+  Let>URL_SUB_PAGE_14=/advanced
+  Let>URL_SUB_PAGE_15=/json
+  Let>URL_SUB_PAGE_16=/pinstates
+  Let>URL_SUB_PAGE_17=/wifiscanner
+  Let>URL_SUB_PAGE_18=/i2cscanner
+  Let>URL_SUB_PAGE_19=/filelist
+  Let>URL_SUB_PAGE_20=/SDfilelist
+  Let>URL_SUB_PAGE_21=/config.dat
+  Let>NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO=21
+END>URL_SUB_PAGES
+
+//Just kill the app
+SRT>EXIT_APP
+  Exit>
+END>EXIT_APP
+
+//List the folders needed and also the number of folders for the creation loop
+SRT>NEEDED_FOLDERS
+  Let>FOLDER_1=%SCRIPT_DIR%\APP_DATA
+  Let>FOLDER_1_FILES=*.*
+  Let>FOLDER_2=%SCRIPT_DIR%\Settings
+  Let>FOLDER_2_FILES=*.ini
+  Let>FOLDER_3=%SCRIPT_DIR%\Log
+  Let>FOLDER_3_FILES=*.*
+  Let>NUMBER_OF_FOLDERS=3
+END>NEEDED_FOLDERS
+
+//Need APP_DATA.zip!!
+SRT>CHECK_APP_DATA_ZIP_FILE
+  IfNotFileExists>%SCRIPT_DIR%\APP_DATA.zip
+    Let>APP_DATA_ZIP_FILE_EXISTS=0
+  Else>
+    //Everything is all right
+    Let>APP_DATA_ZIP_FILE_EXISTS=1
+  Endif>
+END>CHECK_APP_DATA_ZIP_FILE
+
+//Create missing folders
+SRT>CREATE_MISSING_FOLDERS
+  Let>k=0
+  Repeat>k
+    Let>k=k+1
+    Let>TEMP_FOLDER_PATH=FOLDER_%k%
+    IfNotDirExists>TEMP_FOLDER_PATH
+      CreateDir>TEMP_FOLDER_PATH
+    Endif>
+  Until>k=NUMBER_OF_FOLDERS
+END>CREATE_MISSING_FOLDERS
+
+//Generic get time function (HARD is without - or : in the string)
+SRT>GET_TIME_AND_DATE
+  Year>DATE_YEAR
+  Month>DATE_MONTH
+  Day>DATE_DAY
+  Let>DATE=%DATE_YEAR%-%DATE_MONTH%-%DATE_DAY%
+  RegEx>(-),DATE,0,,,1,,DATE_HARD
+  Hour>TIME_HOUR
+  Min>TIME_MIN
+  Sec>TIME_SEC
+  Let>TIME=%TIME_HOUR%:%TIME_MIN%:%TIME_SEC%
+  RegEx>(:),TIME,0,,,1,,TIME_HARD
+END>GET_TIME_AND_DATE
+
+//Run the application
+SRT>RUN_WEBDUMPER
+  SetDialogProperty>Dialog1,LOG_WINDOW,Text,Webdumper started.
+  Let>FILES_CREATED=#########FILES CREATED#########
+  GoSub>GET_DIALOG_INFORMATION
+  GoSub>EVALUATE_IP
+  If>IP_NUMBER=0
+    //We cannot proceed
+    GetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,IP_NUMBER
+    SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Color,255
+    SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,ERROR: IP!
+    Wait>1
+    SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,%IP_NUMBER%
+    SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Color,16777215
+  Else>
+    GoSub>PING_TARGET_UNIT
+    If>UNIT_RESPONDED_TO_PING=1
+      GoSub>GET_UNIT_NAME_AND_NUMBER
+      GoSub>SETUP_LOG_FILE
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,######%DATE%######
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#######%VERSION%#######
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,UNIT IP: %IP_NUMBER%
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,UNIT NAME: %UNIT_NAME%
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,UNIT NUMBER: %UNIT_NUMBER%
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#########JOB LOG#########
+      Let>k_main=0
+      Repeat>k_main
+        Let>k_main=k_main+1
+        If>URL_SUB_PAGE_CHECKED_%k_main%=True
+          Let>SKIP=0
+          //Start fetching
+          If>URL_SUB_PAGE_%k_main%=/rules
+            //We should download rules instead of screen print
+            GoSub>DOWNLOAD_RULES
+            Let>SKIP=1
+          Endif>
+          If>URL_SUB_PAGE_%k_main%=/config.dat
+            //We should download config instead of screen print
+            GoSub>DOWNLOAD_CONFIG
+            Let>SKIP=1
+          Endif>
+          If>SKIP=0
+            Assigned>URL_SUB_PAGE_%k_main%_MAX,INDEX_PAGES_TO_EVALUATE
+            If>INDEX_PAGES_TO_EVALUATE=TRUE
+              Let>index_max=URL_SUB_PAGE_%k_main%_MAX
+              Let>index=0
+              Repeat>index
+                Let>index=index+1
+                Let>TEMP_URL=URL_SUB_PAGE_%k_main%
+                Let>PAGE_TO_FETCH=%TEMP_URL%%index%
+                Let>REGEX_PATTERN=(?<=/).+?(?=s\?setpage)
+                RegEx>REGEX_PATTERN,PAGE_TO_FETCH,,MATCH_ARRAY,NUMB_MATCHES,,,
+                If>NUMB_MATCHES>0
+                  //This is device pages, not setup
+                  Let>SAVE_AS=MATCH_ARRAY_1
+                  Let>SAVE_AS=%SAVE_AS%_page_%index%
+                Else>
+                  Let>REGEX_PATTERN=(?<=/).+?(?=s\?)
+                  RegEx>REGEX_PATTERN,PAGE_TO_FETCH,,MATCH_ARRAY,,,,
+                  Let>SAVE_AS=MATCH_ARRAY_1
+                  Let>SAVE_AS=%SAVE_AS%_%index%
+                Endif>
+                GoSub>FETCH_SCREEN_DUMP
+              Until>index=index_max
+            Else>
+              //Just fetch the base page
+              Let>PAGE_TO_FETCH=URL_SUB_PAGE_%k_main%
+              RegEx>(/),PAGE_TO_FETCH,,,,1,,SAVE_AS
+              GoSub>FETCH_SCREEN_DUMP
+            Endif>
+          Endif>
+        Else>
+          //No fetching of this page...
+        Endif>
+      Until>k_main=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+      GoSub>GET_TIME_AND_DATE
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,############################
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] JOB COMPLETED, over and out!
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,%FILES_CREATED%
+      GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+      SetDialogProperty>Dialog1,LOG_WINDOW,Text,Webdump completed.%CRLF%%LOG_WINDOW_TEXT%
+    Else>
+      //No ping is successful...
+        GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+        SetDialogProperty>Dialog1,LOG_WINDOW,Text,NO PING RESPONSE,%CRLF%cannot proceed.%CRLF%%LOG_WINDOW_TEXT%
+    Endif>
+  Endif>
+END>RUN_WEBDUMPER
+
+SRT>GET_DIALOG_INFORMATION
+  Let>k=0
+  Repeat>k
+    Let>k=k+1
+    Let>TEMP_CHECKBOX_TO_GET=CheckBox%k%
+    GetDialogProperty>Dialog1,%TEMP_CHECKBOX_TO_GET%,Checked,TEMP_VALUE
+    Let>URL_SUB_PAGE_CHECKED_%k%=TEMP_VALUE
+  Until>k=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+  GetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,IP_NUMBER
+END>GET_DIALOG_INFORMATION
+
+//Get unit name and number from IP site
+SRT>GET_UNIT_NAME_AND_NUMBER
+  GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+  SetDialogProperty>Dialog1,LOG_WINDOW,Text,Connecting %IP_NUMBER%,%CRLF%for name and number%CRLF%%LOG_WINDOW_TEXT%
+  HTTPRequest>http://%IP_NUMBER%/config,,GET,,TEMP_DATA
+  Let>REGEX_PATTERN=(?<=<input type='number' name='unit' min=0 max=9999 style='width:5em;' value=).+?(?=><TR><TD>)
+  //Let>REGEX_PATTERN=(?<=name='unit' value=').+?(?='>)
+  RegEx>REGEX_PATTERN,TEMP_DATA,,TEMP_ARR,NUM_MATCHES,,,
+  If>NUM_MATCHES>0
+    Let>UNIT_NUMBER=TEMP_ARR_1
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,Unit number found: %UNIT_NUMBER%%CRLF%%LOG_WINDOW_TEXT%
+  Else>
+    Let>UNIT_NUMBER=
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,No unit number found.%CRLF%%LOG_WINDOW_TEXT%
+  Endif>
+  Let>REGEX_PATTERN=(?<=<input type='text' name='name' maxlength=25 value=').+?(?='><TR><TD>)
+  //Let>REGEX_PATTERN=(?<=name='name' value=').+?(?='>)
+  RegEx>REGEX_PATTERN,TEMP_DATA,,TEMP_ARR,NUM_MATCHES,,,
+  If>NUM_MATCHES>0
+    Let>UNIT_NAME=TEMP_ARR_1
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,Unit name found: %UNIT_NAME%%CRLF%%LOG_WINDOW_TEXT%
+  Else>
+    Let>UNIT_NAME=
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,No unit name found.%CRLF%%LOG_WINDOW_TEXT%
+  Endif>
+END>GET_UNIT_NAME_AND_NUMBER
+
+//See if files are missing, if they are, export new ones.
+SRT>EXTERNAL_SCRIPT_FILES
+  IfNotFileExists>%SCRIPT_DIR%\APP_DATA\wkhtmltoimage.exe
+    Let>FILE_TO_EXTRACT=wkhtmltoimage.exe
+    GoSub>INTERNAL_FILE_TO_EXTRACT_FROM_ZIP,FILE_TO_EXTRACT
+  Endif>
+  IfNotFileExists>%SCRIPT_DIR%\APP_DATA\wkhtmltox.dll
+    Let>FILE_TO_EXTRACT=wkhtmltox.dll
+    GoSub>INTERNAL_FILE_TO_EXTRACT_FROM_ZIP,FILE_TO_EXTRACT
+  Endif>
+  IfFileExists>%SCRIPT_DIR%\APP_DATA\TimeStamp.vbs
+    //Do nothing
+  Else>
+    GetDialogProperty>Dialog1,LOG_MEMO,Text,LOG_MEMO_TEXT
+    SetDialogProperty>Dialog1,LOG_MEMO,Text,Creating "%SCRIPT_DIR%\APP_DATA\TimeStamp.vbs"%CRLF%%LOG_MEMO_TEXT%
+    LabelToVar>TIMESTAMP_VBS,TIMESTAMP_VBS_SCRIPT,1,0,{"*/"}
+    WriteLn>%SCRIPT_DIR%\APP_DATA\TimeStamp.vbs,,TIMESTAMP_VBS_SCRIPT
+  Endif>
+END>EXTERNAL_SCRIPT_FILES
+
+//Generic unzip-subroutine (pass file name to be unziped)
+SRT>INTERNAL_FILE_TO_EXTRACT_FROM_ZIP
+    //The files are missing, need to unpack them
+    IfNotFileExists>%SCRIPT_DIR%\APP_DATA.zip
+      GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+      SetDialogProperty>Dialog1,LOG_WINDOW,Text,APP_DATA.zip is missing!%CRLF%%LOG_WINDOW_TEXT%
+    Else>
+      IfNotDirExists>%SCRIPT_DIR%\APP_DATA
+        CreateDir>%SCRIPT_DIR%\APP_DATA
+      Endif>
+      ZipExtractFiles>%SCRIPT_DIR%\APP_DATA.zip,%INTERNAL_FILE_TO_EXTRACT_FROM_ZIP_Var_1%,%SCRIPT_DIR%\APP_DATA,ZIP_ERROR
+      GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+      SetDialogProperty>Dialog1,LOG_WINDOW,Text,%INTERNAL_FILE_TO_EXTRACT_FROM_ZIP_Var_1% extracted from APP_DATA.zip%CRLF%%LOG_WINDOW_TEXT%
+    Endif>
+END>INTERNAL_FILE_TO_EXTRACT_FROM_ZIP
+
+//Generic screen dump fetcher...
+SRT>FETCH_SCREEN_DUMP
+  IfNotDirExists>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%
+    CreateDir>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%
+  Endif>
+  If>PAGE_TO_FETCH=
+    Let>SAVE_AS=main
+  Endif>
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,[   ]Screenshot of %SAVE_AS%.%CRLF%%LOG_WINDOW_TEXT%
+    GoSub>GET_TIME_AND_DATE
+    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] Taking screenshot of %SAVE_AS% page.
+    //WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#######COMMAND LINE BELOW#######
+    Let>COMMAND_LINE_FOR_DUMPER=wkhtmltoimage.exe http://%IP_NUMBER%%PAGE_TO_FETCH% "%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%SAVE_AS%.png" & exit 0
+    //WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%COMMAND_LINE_FOR_DUMPER%]
+    Let>RP_WINDOWMODE=0
+    Let>RP_WAIT=1
+    RunProgram>cmd /k c: & cd "%SCRIPT_DIR%\APP_DATA" & %COMMAND_LINE_FOR_DUMPER%
+    //WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#######COMMAND LINE ABOVE#######
+    GoSub>GET_TIME_AND_DATE
+    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] %SAVE_AS%.png saved.
+    Let>FILES_CREATED=%FILES_CREATED%%CRLF%%SAVE_AS%.png
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    Let>REGEX_PATTERN=(\[   \]Screenshot of %SAVE_AS%\.)
+    RegEx>REGEX_PATTERN,LOG_WINDOW_TEXT,0,,,1,[X]Screenshot of %SAVE_AS%.,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,%LOG_WINDOW_TEXT%
+    Wait>0.5
+END>FETCH_SCREEN_DUMP
+
+//Generic log file name
+SRT>SETUP_LOG_FILE
+    GoSub>GET_TIME_AND_DATE
+    Let>LOG_FILE_NAME=
+    Let>LOG_FOLDER_NAME=%IP_NUMBER%_WEBDUMP_%DATE_HARD%%TIME_HARD%
+    If>UNIT_NUMBER=
+      //Do nothing
+    Else>
+      Let>LOG_FILE_NAME=%UNIT_NUMBER%_%LOG_FILE_NAME%
+      Let>LOG_FOLDER_NAME=%UNIT_NUMBER%_%LOG_FOLDER_NAME%
+    Endif>
+    If>UNIT_NAME=
+      //Do nothing
+    Else>
+      Let>LOG_FILE_NAME=%UNIT_NAME%_%LOG_FILE_NAME%
+      Let>LOG_FOLDER_NAME=%UNIT_NAME%_%LOG_FOLDER_NAME%
+    Endif>
+    Let>LOG_FILE_NAME=%LOG_FILE_NAME%%DATE_HARD%%TIME_HARD%.txt
+    IfNotDirExists>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%
+      CreateDir>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%
+    Endif>
+END>SETUP_LOG_FILE
+
+//Download config file
+SRT>DOWNLOAD_CONFIG
+  IfNotDirExists>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%
+    CreateDir>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%
+  Endif>
+    GoSub>GET_TIME_AND_DATE
+    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] Downloading config.dat
+    Let>FILE_NAME_CONFIG=URL_SUB_PAGE_%k_main%
+    Let>URL_TO_DONWLOAD_FROM=http://%IP_NUMBER%%FILE_NAME_CONFIG%
+    HTTPRequest>%URL_TO_DONWLOAD_FROM%,%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%%FILE_NAME_CONFIG%,GET,,IE_ERROR
+    Let>ERROR_OUTPUT=0
+    If>IE_ERROR=404 Error connecting to host
+      Let>ERROR_OUTPUT=1
+    Endif>
+    If>IE_ERROR=404 HTTP/1.1 404 Not Found
+      Let>ERROR_OUTPUT=1
+    Endif>
+    If>ERROR_OUTPUT>0
+      GoSub>GET_TIME_AND_DATE
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] ! config.dat not found, skipping. !
+    Else>
+      GoSub>GET_TIME_AND_DATE
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] config.dat saved.
+      Let>FILES_CREATED=%FILES_CREATED%%CRLF%config.dat
+    Endif>
+END>DOWNLOAD_CONFIG
+
+//Download all rule files...
+SRT>DOWNLOAD_RULES
+  Let>RULES_INDEX=%k_main%
+  Let>MAX_RULE_PAGES=URL_SUB_PAGE_%RULES_INDEX%_MAX
+  Let>SUB_PAGE=URL_SUB_PAGE_%RULES_INDEX%
+  IfNotDirExists>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%
+    CreateDir>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%
+  Endif>
+  Let>k_rules=0
+  Repeat>k_rules
+    GoSub>GET_TIME_AND_DATE
+    Let>k_rules=k_rules+1
+    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] Downloading rules%k_rules%.txt
+    Let>URL_TO_DONWLOAD_FROM=http://%IP_NUMBER%%SUB_PAGE%%k_rules%.txt
+    HTTPRequest>%URL_TO_DONWLOAD_FROM%,%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\rules%k_rules%.txt,GET,,IE_ERROR
+    Let>ERROR_OUTPUT=0
+    If>IE_ERROR=404 Error connecting to host
+      Let>ERROR_OUTPUT=1
+    Endif>
+    If>IE_ERROR=404 HTTP/1.1 404 Not Found
+      Let>ERROR_OUTPUT=1
+    Endif>
+    If>ERROR_OUTPUT>0
+      GoSub>GET_TIME_AND_DATE
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] ! rules%k_rules%.txt not found, skipping. !
+    Else>
+      GoSub>GET_TIME_AND_DATE
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] rules%k_rules%.txt saved.
+      Let>FILES_CREATED=%FILES_CREATED%%CRLF%rules%k_rules%.txt
+    Endif>
+  Until>k_rules=MAX_RULE_PAGES
+END>DOWNLOAD_RULES
+
+//Pinging routine...
+SRT>PING_TARGET_UNIT
+    GoSub>GET_TIME_AND_DATE
+    WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] Pinging %IP_NUMBER%.
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,Pinging %IP_NUMBER%...%CRLF%%LOG_WINDOW_TEXT%
+    IfFileExists>%SCRIPT_DIR%\APP_DATA\PING.txt
+      DeleteFile>%SCRIPT_DIR%\APP_DATA\PING.txt
+    Endif>
+    Wait>0.5
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,This might take a minute or two.%CRLF%%LOG_WINDOW_TEXT%
+    //Count is used to send multiple pings. Lowest recommended is 2 since the first one might only wake the ESP. 5 turned out to be to many from a delay standpoint
+    Let>RUN_STRING=powershell "test-connection -ComputerName %IP_NUMBER% -count 2 | Format-List | tee '%SCRIPT_DIR%\APP_DATA\PING.txt'"
+    Let>RP_WAIT=1
+    Let>RP_WINDOWMODE=0
+    Run>%RUN_STRING%
+    ReadFile>%SCRIPT_DIR%\APP_DATA\PING.txt,PING_RESULTS
+    Let>REGEX_PATTERN=(ResponseTime[ ]*:[ ]*)[0123456789]+
+    RegEx>REGEX_PATTERN,PING_RESULTS,,PING_TIME_ARRAY,NUMBER_MATCHES,,,
+    //Fix regex results a bit (remove text, leave only number)
+    If>NUMBER_MATCHES>0
+      Let>REGEX_PATTERN=(ResponseTime[ ]*:[ ]*)
+      RegEx>REGEX_PATTERN,%PING_TIME_ARRAY_1%,,,,1,,PING_TIME
+    Endif>
+    DeleteFile>%SCRIPT_DIR%\APP_DATA\PING.txt
+    If>NUMBER_MATCHES>0
+      Let>UNIT_RESPONDED_TO_PING=1
+      //List response time
+      GoSub>GET_TIME_AND_DATE
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] %IP_NUMBER% responded in %PING_TIME%ms.
+      GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+      SetDialogProperty>Dialog1,LOG_WINDOW,Text,Target responded (%PING_TIME%ms).%CRLF%%LOG_WINDOW_TEXT%
+    Else>
+      Let>UNIT_RESPONDED_TO_PING=0
+      //Throw an error if there's no response on IP
+      GoSub>GET_TIME_AND_DATE
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] ERROR: %IP_NUMBER% is unresponsive.
+      GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+      SetDialogProperty>Dialog1,LOG_WINDOW,Text,______________%CRLF%ERROR:%CRLF%%IP_NUMBER% is unresponsive.%CRLF%______________%CRLF%%LOG_WINDOW_TEXT%
+    Endif>
+END>PING_TARGET_UNIT
+
+//Fast select none
+SRT>SELECT_NONE
+  GoSub>ADD_SELECTED_BOX_TO_ALL,False
+END>SELECT_NONE
+
+//Fast select all
+SRT>SELECT_ALL
+  GoSub>ADD_SELECTED_BOX_TO_ALL,True
+END>SELECT_ALL
+
+SRT>ADD_SELECTED_BOX_TO_ALL
+  Let>k_selection=0
+  Repeat>k_selection
+    Let>k_selection=k_selection+1
+    Let>TEMP_CHECKBOX_TO_SET=CheckBox%k_selection%
+    SetDialogProperty>Dialog1,%TEMP_CHECKBOX_TO_SET%,Checked,ADD_SELECTED_BOX_TO_ALL_Var_1
+  Until>k_selection=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+END>ADD_SELECTED_BOX_TO_ALL
+
+SRT>COPY_TO_CLIPBOARD
+  GetDialogProperty>Dialog1,LOG_WINDOW,Text,COPY_THIS_TO_CLIPBOARD
+  PutClipBoard>%COPY_THIS_TO_CLIPBOARD%
+  GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+  SetDialogProperty>Dialog1,LOG_WINDOW,Text,Copied this log text to clipboard.%CRLF%%LOG_WINDOW_TEXT%
+END>COPY_TO_CLIPBOARD
+
+//Is the IP an IP?
+SRT>EVALUATE_IP
+  RegEx>[IPAddress],IP_NUMBER,1,IP_NUMBER_MATCH,IP_NUMBER_NO_MATCH,,,
+  If>IP_NUMBER_MATCH_1=IP_NUMBER
+    //The number is an IP address
+  Else>
+    //No valid IP number is entered
+    Let>IP_NUMBER=0
+  Endif>
+END>EVALUATE_IP
+
+//Set the default settings if there is some...
+SRT>SET_DEFAULT_DIALOG_SETTINGS
+  GoSub>READ_SETTINGS_FILE
+  If>NO_DEFAULT_FILE_FOUND=1
+    //Do nothing
+  Else>
+    Let>k_checkbox=0
+    Repeat>k_checkbox
+      Let>k_checkbox=k_checkbox+1
+      Let>TEMP_INI_SETTING=URL_SUB_PAGE_CHECKED_%k_checkbox%
+      SetDialogProperty>Dialog1,CheckBox%k_checkbox%,Checked,%TEMP_INI_SETTING%
+    Until>k_checkbox=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+    SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,%IP_NUMBER%
+  Endif>
+END>SET_DEFAULT_DIALOG_SETTINGS
+
+//What will happen if the save button is pressed, get all settings and store them in the INI file (Settings folder)
+SRT>SAVE_SETTINGS_FILE
+  GoSub>GET_DIALOG_INFORMATION
+  Let>INI_FILE_PATH=%SCRIPT_DIR%\Settings
+  Let>INI_FILE=Default.ini
+  //First delete the old one so we don't need to care if it is corrupt
+  IfFileExists>%INI_FILE_PATH%\%INI_FILE%
+    DeleteFile>%INI_FILE_PATH%\%INI_FILE%
+  Endif>
+  WriteLn>%INI_FILE_PATH%\%INI_FILE%,,######%VERSION%######
+  Let>k_ini=0
+  Repeat>k_ini
+    Let>k_ini=k_ini+1
+    Let>TEMP_INI_SETTING=URL_SUB_PAGE_CHECKED_%k_ini%
+    EditIniFile>%INI_FILE_PATH%\%INI_FILE%,Checkboxes,Checkbox%k_ini%,%TEMP_INI_SETTING%
+  Until>k_ini=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+  EditIniFile>%INI_FILE_PATH%\%INI_FILE%,General,IP number,IP_NUMBER
+    GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,Default settings saved.%CRLF%%LOG_WINDOW_TEXT%
+END>SAVE_SETTINGS_FILE
+
+//In order to restore settings we need to read the INI file 
+SRT>READ_SETTINGS_FILE
+  Let>INI_FILE_PATH=%SCRIPT_DIR%\Settings
+  Let>INI_FILE=Default.ini
+  IfFileExists>%INI_FILE_PATH%\%INI_FILE%
+    Let>NO_DEFAULT_FILE_FOUND=0
+    Let>k_ini=0
+    Repeat>k_ini
+      Let>k_ini=k_ini+1
+      ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,Checkboxes,Checkbox%k_ini%,TEMP_INI_SETTING
+      Let>URL_SUB_PAGE_CHECKED_%k_ini%=TEMP_INI_SETTING
+    Until>k_ini=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+    ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,General,IP number,IP_NUMBER
+  Else>
+    Let>NO_DEFAULT_FILE_FOUND=1
+    Let>DEBUG_LEVEL=0
+  Endif>
+END>READ_SETTINGS_FILE
+
+//Included files below this point....
+/*
+TIMESTAMP_VBS:
+Dim str
+Do While Not WScript.StdIn.AtEndOfStream
+  str = WScript.StdIn.ReadLine
+  WScript.StdErr.WriteLine "[" & now & "] " & str
+Loop
+*/
       Left = 5
       Top = 24
       Width = 220
