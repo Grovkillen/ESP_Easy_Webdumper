@@ -34,11 +34,10 @@ LEGEND
 ```diff
 + Green is a feature already implemented
 - Red is on the todo-list
-
+```
 
 DISCLAIMER
 ------------
 * **GUI** is messed up on Windows 10 (at least) compared to Windows 7 (which I compile the exe on). I will try to fix this in future releases, BETA, but as of now I focus on the core function. The main problem comes from W10 willingness of showing the interface with zoom activated. Reverting it to 100% fixes some of the messiness.
-```
 
 ![ESP Easy Webdumper GUI 2](Screenshot2.png)
