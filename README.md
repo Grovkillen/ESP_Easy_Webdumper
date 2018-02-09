@@ -25,7 +25,7 @@ EXTRA INFORMATION
 * **ONLY WINDOWS** is supported (Windows 10, Windows 8.1, Windows 8, Windows 7, and possibly older versions as well)
 * **APP_DATA.zip** is needed for the screenshots, download and place it in the same directory as the ESP Easy Webdumper exe file.
 * **Log files** for each webdump will be placed in the Log folder under the subfolder of that unit.
-* **Batch mode** is possible using a batch file and call the application with this switch: "**ESP.Easy.Webdumper.exe /IP_NUMBER=** 192.168.x.xx". The app will exit once a dump is completed. If you want the small window to not show up during the batch mode you need to add "**/SILENT=1**" to the command line.
+* **Batch mode** is possible using a batch file and call the application with this switch: "**ESP.Easy.Webdumper.exe /IP_NUMBER=192.168.x.xx**". The app will exit once a dump is completed. If you want the small window to not show up during the batch mode you need to add "**/SILENT=1**" to the command line.
 
 I plan add more features on a weekly basis. Thanks for all the feedback!
 
