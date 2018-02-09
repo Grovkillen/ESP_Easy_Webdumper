@@ -18,6 +18,7 @@ FEATURES
 + Batch run multiple IP addresses (via batch file and command line switch /IP_NUMBER)
 + Batch run scheadule for daily or weekly backups (via batch file and command line switch /IP_NUMBER)
 + Compress results into a zip file
+- Possibility to pick sub-sub-pages to dump (i.e. not all 12 task pages etc.)
 ```
 
 EXTRA INFORMATION
