@@ -1,7 +1,7 @@
 // COMPILE_OPTS|C:\Users\Jimmy\Desktop\ESP Easy Webdumper.exe|C:\Users\Jimmy\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
 
 //Global variables (version is MAYOR.MINOR.MINIMAL)
-Let>VERSION=0.00.010
+Let>VERSION=0.00.011
 Let>APP_TITLE=ESP Easy Webdumper (%VERSION%)
 GoSub>STARTUP_OF_APP
 
@@ -458,6 +458,12 @@ SRT>STARTUP_OF_APP
   GoSub>URL_SUB_PAGES
   GoSub>DIALOG_MAIN
   GoSub>SET_DEFAULT_DIALOG_SETTINGS
+  IfFileExists>%SCRIPT_DIR%\APP_DATA.zip
+    //Everything IS OKAY
+  Else>
+    SetDialogProperty>Dialog1,LOG_WINDOW,Text,APP_DATA.zip is missing!%CRLF%Download it from GitHub%CRLF%and restart the app...
+    SetDialogProperty>Dialog1,BUTTON_RUN_WEBDUMPER,Enabled,False
+  Endif>
   If>HEADLESS_DUMPER=1
     //Fix so that the cmd assigned number is restored...
     Let>IP_NUMBER=IP_NUMBER_CMD
