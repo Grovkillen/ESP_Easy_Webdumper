@@ -1,7 +1,7 @@
 // COMPILE_OPTS|C:\Users\Jimmy\Desktop\ESP Easy Webdumper.exe|C:\Users\Jimmy\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
 
 //Global variables (version is MAYOR.MINOR.MINIMAL)
-Let>VERSION=0.00.012
+Let>VERSION=0.00.013
 Let>APP_TITLE=ESP Easy Webdumper (%VERSION%)
 GoSub>STARTUP_OF_APP
 
@@ -718,7 +718,7 @@ SRT>RUN_WEBDUMPER
 END>RUN_WEBDUMPER
 
 SRT>ZIP_THE_RESULTS
-    ExtractFileName>%LOG_FILE_NAME%,SAVE_AS,1
+    Let>SAVE_AS=LOG_FOLDER_NAME
     GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
     SetDialogProperty>Dialog1,LOG_WINDOW,Text,[   ]Adding results to %SAVE_AS%.zip.%CRLF%%LOG_WINDOW_TEXT%
     Let>ZIP_FILE_NAME=%SCRIPT_DIR%\Log\%SAVE_AS%.zip
