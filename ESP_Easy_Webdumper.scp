@@ -1,7 +1,7 @@
 // COMPILE_OPTS|C:\Users\Jimmy\Desktop\ESP Easy Webdumper.exe|C:\Users\Jimmy\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
 
 //Global variables (version is MAYOR.MINOR.MINIMAL)
-Let>VERSION=0.00.013
+Let>VERSION=0.00.014
 Let>APP_TITLE=ESP Easy Webdumper (%VERSION%)
 GoSub>STARTUP_OF_APP
 
@@ -728,7 +728,7 @@ SRT>ZIP_THE_RESULTS
       DeleteFolder>%ARCHIVE_TO_ZIP%
       GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
       Let>REGEX_PATTERN=(\[   \]Adding results to %SAVE_AS%.zip\.)
-      RegEx>REGEX_PATTERN,LOG_WINDOW_TEXT,0,,,1,[X]Adding results to %SAVE_AS%.zip.,LOG_WINDOW_TEXT
+      RegEx>REGEPATTERN,LOG_WINDOW_TEXT,0,,,1,[X]Adding results to %SAVE_AS%.zip.,LOG_WINDOW_TEXT
       SetDialogProperty>Dialog1,LOG_WINDOW,Text,%LOG_WINDOW_TEXT%
       Wait>0.5
       GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
@@ -831,7 +831,7 @@ SRT>FETCH_SCREEN_DUMP
     GoSub>GET_TIME_AND_DATE
     WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] Taking screenshot of %SAVE_AS% page.
     //WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#######COMMAND LINE BELOW#######
-    Let>COMMAND_LINE_FOR_DUMPER=wkhtmltoimage.exe http://%IP_NUMBER%%PAGE_TO_FETCH% "%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%SAVE_AS%.png" & exit 0
+    Let>COMMAND_LINE_FOR_DUMPER=wkhtmltoimage.exe --quality 35 http://%IP_NUMBER%%PAGE_TO_FETCH% "%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%SAVE_AS%.png" & exit 0
     //WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%COMMAND_LINE_FOR_DUMPER%]
     Let>RP_WINDOWMODE=0
     Let>RP_WAIT=1
