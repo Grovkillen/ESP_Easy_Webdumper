@@ -1,7 +1,7 @@
 // COMPILE_OPTS|C:\Users\Jimmy\Desktop\ESP Easy Webdumper.exe|C:\Users\Jimmy\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
 
 //Global variables (version is MAYOR.MINOR.MINIMAL)
-Let>VERSION=0.00.015
+Let>VERSION=0.01.000
 Let>APP_TITLE=ESP Easy Webdumper (%VERSION%)
 GoSub>STARTUP_OF_APP
 
@@ -936,18 +936,18 @@ SRT>PING_TARGET_UNIT
     WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] Pinging %IP_NUMBER%.
     GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
     SetDialogProperty>Dialog1,LOG_WINDOW,Text,Pinging %IP_NUMBER%...%CRLF%%LOG_WINDOW_TEXT%
-    IfFileExists>%SCRIPT_DIR%\APP_DATA\PING.txt
-      DeleteFile>%SCRIPT_DIR%\APP_DATA\PING.txt
+    IfFileExists>%SCRIPT_DIR%\APP_DATA\PING_%INPUT_IP_ADDRESS%.txt
+      DeleteFile>%SCRIPT_DIR%\APP_DATA\PING_%INPUT_IP_ADDRESS%.txt
     Endif>
     Wait>0.5
     GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
     SetDialogProperty>Dialog1,LOG_WINDOW,Text,This might take a minute or two.%CRLF%%LOG_WINDOW_TEXT%
     //Count is used to send multiple pings. Lowest recommended is 2 since the first one might only wake the ESP. 5 turned out to be to many from a delay standpoint
-    Let>RUN_STRING=powershell "test-connection -ComputerName %IP_NUMBER% -count 2 | Format-List | tee '%SCRIPT_DIR%\APP_DATA\PING.txt'"
+    Let>RUN_STRING=powershell "test-connection -ComputerName %IP_NUMBER% -count 2 | Format-List | tee '%SCRIPT_DIR%\APP_DATA\PING_%INPUT_IP_ADDRESS%.txt'"
     Let>RP_WAIT=1
     Let>RP_WINDOWMODE=0
     Run>%RUN_STRING%
-    ReadFile>%SCRIPT_DIR%\APP_DATA\PING.txt,PING_RESULTS
+    ReadFile>%SCRIPT_DIR%\APP_DATA\PING_%INPUT_IP_ADDRESS%.txt,PING_RESULTS
     Let>REGEX_PATTERN=(ResponseTime[ ]*:[ ]*)[0123456789]+
     RegEx>REGEX_PATTERN,PING_RESULTS,,PING_TIME_ARRAY,NUMBER_MATCHES,,,
     //Fix regex results a bit (remove text, leave only number)
@@ -955,7 +955,7 @@ SRT>PING_TARGET_UNIT
       Let>REGEX_PATTERN=(ResponseTime[ ]*:[ ]*)
       RegEx>REGEX_PATTERN,%PING_TIME_ARRAY_1%,,,,1,,PING_TIME
     Endif>
-    DeleteFile>%SCRIPT_DIR%\APP_DATA\PING.txt
+    DeleteFile>%SCRIPT_DIR%\APP_DATA\PING_%INPUT_IP_ADDRESS%.txt
     If>NUMBER_MATCHES>0
       Let>UNIT_RESPONDED_TO_PING=1
       //List response time
