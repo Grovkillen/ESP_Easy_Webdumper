@@ -1,7 +1,7 @@
-// COMPILE_OPTS|C:\Users\Jimmy\Desktop\ESP Easy Webdumper.exe|C:\Users\Jimmy\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
+// COMPILE_OPTS|C:\Users\Jimwes\Desktop\ESP Easy Webdumper.exe|C:\Users\Jimwes\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
 
 //Global variables (version is MAYOR.MINOR.MINIMAL)
-Let>VERSION=0.01.000
+Let>VERSION=0.01.001
 Let>APP_TITLE=ESP Easy Webdumper (%VERSION%)
 GoSub>STARTUP_OF_APP
 
@@ -14,52 +14,54 @@ Goto>WAITING_FOR_A_WHILE
 SRT>DIALOG_MAIN
 Dialog>Dialog1
 object Dialog1: TForm
-  Left = 247
-  Top = 97
+  Left = -1241
+  Top = 266
   HelpContext = 5000
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'CustomDialog'
-  ClientHeight = 418
-  ClientWidth = 481
+  ClientHeight = 514
+  ClientWidth = 592
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -14
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = True
   ShowHint = True
   OnTaskBar = False
-  PixelsPerInch = 96
-  TextHeight = 13
+  PixelsPerInch = 120
+  TextHeight = 16
   object Panel1: TPanel
-    Left = 7
-    Top = 26
-    Width = 202
-    Height = 345
+    Left = 9
+    Top = 32
+    Width = 248
+    Height = 425
     Margins.Left = 2
     Margins.Top = 2
     Margins.Right = 2
     Margins.Bottom = 2
     TabOrder = 0
     object CheckBox1: TCheckBox
-      Left = 4
-      Top = 3
-      Width = 179
-      Height = 14
+      Left = 5
+      Top = 4
+      Width = 116
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
       Margins.Bottom = 2
       Caption = 'Main page'
+      Checked = True
+      State = cbChecked
       TabOrder = 0
     end
     object CheckBox2: TCheckBox
-      Left = 4
-      Top = 20
-      Width = 179
-      Height = 13
+      Left = 5
+      Top = 25
+      Width = 220
+      Height = 16
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -68,10 +70,10 @@ object Dialog1: TForm
       TabOrder = 1
     end
     object CheckBox3: TCheckBox
-      Left = 4
-      Top = 36
-      Width = 179
-      Height = 14
+      Left = 5
+      Top = 44
+      Width = 220
+      Height = 18
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -80,10 +82,10 @@ object Dialog1: TForm
       TabOrder = 2
     end
     object CheckBox4: TCheckBox
-      Left = 12
-      Top = 52
-      Width = 179
-      Height = 14
+      Left = 15
+      Top = 64
+      Width = 220
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -92,10 +94,10 @@ object Dialog1: TForm
       TabOrder = 3
     end
     object CheckBox5: TCheckBox
-      Left = 4
-      Top = 68
-      Width = 179
-      Height = 14
+      Left = 5
+      Top = 84
+      Width = 220
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -104,10 +106,10 @@ object Dialog1: TForm
       TabOrder = 4
     end
     object CheckBox6: TCheckBox
-      Left = 4
-      Top = 85
-      Width = 179
-      Height = 13
+      Left = 5
+      Top = 105
+      Width = 220
+      Height = 16
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -116,10 +118,10 @@ object Dialog1: TForm
       TabOrder = 5
     end
     object CheckBox7: TCheckBox
-      Left = 12
-      Top = 101
-      Width = 179
-      Height = 14
+      Left = 15
+      Top = 124
+      Width = 154
+      Height = 18
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -128,10 +130,10 @@ object Dialog1: TForm
       TabOrder = 6
     end
     object CheckBox8: TCheckBox
-      Left = 4
-      Top = 117
-      Width = 192
-      Height = 14
+      Left = 5
+      Top = 144
+      Width = 236
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -140,10 +142,10 @@ object Dialog1: TForm
       TabOrder = 7
     end
     object CheckBox9: TCheckBox
-      Left = 4
-      Top = 133
-      Width = 195
-      Height = 14
+      Left = 5
+      Top = 164
+      Width = 240
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -152,10 +154,10 @@ object Dialog1: TForm
       TabOrder = 8
     end
     object CheckBox10: TCheckBox
-      Left = 12
-      Top = 150
-      Width = 195
-      Height = 13
+      Left = 15
+      Top = 185
+      Width = 240
+      Height = 16
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -164,10 +166,10 @@ object Dialog1: TForm
       TabOrder = 9
     end
     object CheckBox11: TCheckBox
-      Left = 4
-      Top = 166
-      Width = 195
-      Height = 14
+      Left = 5
+      Top = 204
+      Width = 240
+      Height = 18
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -176,10 +178,10 @@ object Dialog1: TForm
       TabOrder = 10
     end
     object CheckBox12: TCheckBox
-      Left = 12
-      Top = 182
-      Width = 195
-      Height = 14
+      Left = 15
+      Top = 224
+      Width = 240
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -188,10 +190,10 @@ object Dialog1: TForm
       TabOrder = 11
     end
     object CheckBox13: TCheckBox
-      Left = 12
-      Top = 198
-      Width = 195
-      Height = 14
+      Left = 15
+      Top = 244
+      Width = 240
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -200,10 +202,10 @@ object Dialog1: TForm
       TabOrder = 12
     end
     object CheckBox14: TCheckBox
-      Left = 12
-      Top = 215
-      Width = 195
-      Height = 13
+      Left = 15
+      Top = 265
+      Width = 240
+      Height = 16
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -212,10 +214,10 @@ object Dialog1: TForm
       TabOrder = 13
     end
     object CheckBox15: TCheckBox
-      Left = 12
-      Top = 231
-      Width = 195
-      Height = 14
+      Left = 15
+      Top = 284
+      Width = 240
+      Height = 18
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -224,10 +226,10 @@ object Dialog1: TForm
       TabOrder = 14
     end
     object CheckBox16: TCheckBox
-      Left = 12
-      Top = 247
-      Width = 195
-      Height = 14
+      Left = 15
+      Top = 304
+      Width = 240
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -236,10 +238,10 @@ object Dialog1: TForm
       TabOrder = 15
     end
     object CheckBox17: TCheckBox
-      Left = 12
-      Top = 263
-      Width = 195
-      Height = 14
+      Left = 15
+      Top = 324
+      Width = 240
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -248,10 +250,10 @@ object Dialog1: TForm
       TabOrder = 16
     end
     object CheckBox18: TCheckBox
-      Left = 12
-      Top = 280
-      Width = 195
-      Height = 13
+      Left = 15
+      Top = 345
+      Width = 240
+      Height = 16
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -260,10 +262,10 @@ object Dialog1: TForm
       TabOrder = 17
     end
     object CheckBox19: TCheckBox
-      Left = 12
-      Top = 296
-      Width = 195
-      Height = 14
+      Left = 15
+      Top = 364
+      Width = 240
+      Height = 18
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -272,10 +274,10 @@ object Dialog1: TForm
       TabOrder = 18
     end
     object CheckBox20: TCheckBox
-      Left = 12
-      Top = 312
-      Width = 195
-      Height = 14
+      Left = 15
+      Top = 384
+      Width = 240
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -284,10 +286,10 @@ object Dialog1: TForm
       TabOrder = 19
     end
     object CheckBox21: TCheckBox
-      Left = 12
-      Top = 328
-      Width = 195
-      Height = 14
+      Left = 15
+      Top = 404
+      Width = 240
+      Height = 17
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -295,12 +297,21 @@ object Dialog1: TForm
       Caption = 'Config [will be downloaded as .dat]'
       TabOrder = 20
     end
+    object CheckBox0: TCheckBox
+      Left = 128
+      Top = 4
+      Width = 113
+      Height = 17
+      Hint = 'With this option checked non-used pages will not be dumped.'
+      Caption = 'Selective dump'
+      TabOrder = 21
+    end
   end
   object BUTTON_ALL: tMSButton
-    Left = 8
-    Top = 3
-    Width = 61
-    Height = 21
+    Left = 10
+    Top = 4
+    Width = 75
+    Height = 26
     Margins.Left = 2
     Margins.Top = 2
     Margins.Right = 2
@@ -311,10 +322,10 @@ object Dialog1: TForm
     BrowseStyle = fbOpen
   end
   object BUTTON_NONE: tMSButton
-    Left = 73
-    Top = 3
-    Width = 71
-    Height = 21
+    Left = 90
+    Top = 4
+    Width = 87
+    Height = 26
     Margins.Left = 2
     Margins.Top = 2
     Margins.Right = 2
@@ -325,10 +336,10 @@ object Dialog1: TForm
     BrowseStyle = fbOpen
   end
   object BUTTON_CLIPBOARD: tMSButton
-    Left = 426
-    Top = 3
-    Width = 49
-    Height = 21
+    Left = 524
+    Top = 4
+    Width = 61
+    Height = 26
     Hint = 'The log below is copied to your clipboard.'
     Margins.Left = 2
     Margins.Top = 2
@@ -341,20 +352,20 @@ object Dialog1: TForm
     BrowseStyle = fbOpen
   end
   object INPUT_2_PANEL: TPanel
-    Left = 7
-    Top = 375
-    Width = 469
-    Height = 42
+    Left = 9
+    Top = 462
+    Width = 577
+    Height = 51
     Margins.Left = 2
     Margins.Top = 2
     Margins.Right = 2
     Margins.Bottom = 2
     TabOrder = 4
     object BUTTON_RUN_WEBDUMPER: tMSButton
-      Left = 414
+      Left = 510
       Top = 2
-      Width = 53
-      Height = 39
+      Width = 65
+      Height = 48
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -362,7 +373,7 @@ object Dialog1: TForm
       Caption = 'RUN'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
-      Font.Height = -19
+      Font.Height = -23
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentFont = False
@@ -371,10 +382,10 @@ object Dialog1: TForm
       BrowseStyle = fbOpen
     end
     object INPUT_IP_ADDRESS: TEdit
-      Left = 211
+      Left = 260
       Top = 2
-      Width = 203
-      Height = 40
+      Width = 250
+      Height = 46
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -383,7 +394,7 @@ object Dialog1: TForm
       Color = clWhite
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
-      Font.Height = -27
+      Font.Height = -33
       Font.Name = 'Arial'
       Font.Style = []
       ParentFont = False
@@ -392,9 +403,9 @@ object Dialog1: TForm
     end
     object BUTTON_SAVE_DEFAULT: tMSButton
       Left = 0
-      Top = 23
-      Width = 115
-      Height = 17
+      Top = 28
+      Width = 142
+      Height = 21
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -407,17 +418,21 @@ object Dialog1: TForm
     object CheckBox_ZIPFILE: TCheckBox
       Left = 2
       Top = 2
-      Width = 97
-      Height = 17
+      Width = 120
+      Height = 21
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
       Caption = 'Store files in zip'
       TabOrder = 3
     end
   end
   object MEMO_PANEL: TPanel
-    Left = 217
-    Top = 27
-    Width = 258
-    Height = 345
+    Left = 267
+    Top = 33
+    Width = 318
+    Height = 425
     Margins.Left = 2
     Margins.Top = 2
     Margins.Right = 2
@@ -427,8 +442,8 @@ object Dialog1: TForm
     object LOG_WINDOW: tMSMemo
       Left = 1
       Top = 1
-      Width = 256
-      Height = 343
+      Width = 316
+      Height = 423
       Margins.Left = 2
       Margins.Top = 2
       Margins.Right = 2
@@ -436,11 +451,13 @@ object Dialog1: TForm
       Text = 'App started.'
       ScrollBars = ssBoth
       ScrollBarsAutoShowing = ssBoth
+      VertScrollBarStyles.ButtonSize = 21
+      HorzScrollBarStyles.ButtonSize = 21
       Align = alClient
       Color = 14513920
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
-      Font.Height = -12
+      Font.Height = -15
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
@@ -525,6 +542,8 @@ SRT>LOAD_DIALOG_HANDLERS
   AddDialogHandler>Dialog1,BUTTON_ALL,OnClick,SELECT_ALL
   AddDialogHandler>Dialog1,BUTTON_CLIPBOARD,OnClick,COPY_TO_CLIPBOARD
   AddDialogHandler>Dialog1,BUTTON_SAVE_DEFAULT,OnClick,SAVE_SETTINGS_FILE
+  //remove this when feature added
+  SetDialogProperty>Dialog1,CheckBox0,Visible,False
   If>IS_SILENT_ASSIGNED=TRUE
     //Do not show the dialog
   Else>
@@ -547,9 +566,8 @@ SRT>URL_SUB_PAGES
   Let>URL_SUB_PAGE_4=/controllers?index=
   Let>URL_SUB_PAGE_4_MAX=3
   Let>URL_SUB_PAGE_5=/hardware
-  //setpage 1..4
-  Let>URL_SUB_PAGE_6=/devices?setpage=
-  Let>URL_SUB_PAGE_6_MAX=3
+  //Only one page as of later versions...
+  Let>URL_SUB_PAGE_6=/devices
   //index 1..12
   Let>URL_SUB_PAGE_7=/devices?index=
   Let>URL_SUB_PAGE_7_MAX=12
@@ -650,6 +668,8 @@ SRT>RUN_WEBDUMPER
       WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,UNIT NAME: %UNIT_NAME%
       WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,UNIT NUMBER: %UNIT_NUMBER%
       WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,#########JOB LOG#########
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,Timer started...
+      Timer>START_OF_SCAN
       Let>k_main=0
       Repeat>k_main
         Let>k_main=k_main+1
@@ -701,6 +721,9 @@ SRT>RUN_WEBDUMPER
         Endif>
       Until>k_main=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
       GoSub>GET_TIME_AND_DATE
+      Timer>END_OF_SCAN
+      Let>TIME_FOR_COMPLETE_SCAN={(%END_OF_SCAN%-%START_OF_SCAN%)/1000}
+      WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,Total time for webdump: %TIME_FOR_COMPLETE_SCAN% seconds
       WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,############################
       WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] JOB COMPLETED, over and out!
       WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,%FILES_CREATED%
@@ -1018,9 +1041,9 @@ SRT>SET_DEFAULT_DIALOG_SETTINGS
   Else>
     Let>k_checkbox=0
     Repeat>k_checkbox
-      Let>k_checkbox=k_checkbox+1
       Let>TEMP_INI_SETTING=URL_SUB_PAGE_CHECKED_%k_checkbox%
       SetDialogProperty>Dialog1,CheckBox%k_checkbox%,Checked,%TEMP_INI_SETTING%
+      Let>k_checkbox=k_checkbox+1
     Until>k_checkbox=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
     SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,%IP_NUMBER%
     SetDialogProperty>Dialog1,CheckBox_ZIPFILE,Checked,%ZIP_RESULTS%
@@ -1039,9 +1062,9 @@ SRT>SAVE_SETTINGS_FILE
   WriteLn>%INI_FILE_PATH%\%INI_FILE%,,######%VERSION%######
   Let>k_ini=0
   Repeat>k_ini
-    Let>k_ini=k_ini+1
     Let>TEMP_INI_SETTING=URL_SUB_PAGE_CHECKED_%k_ini%
     EditIniFile>%INI_FILE_PATH%\%INI_FILE%,Checkboxes,Checkbox%k_ini%,%TEMP_INI_SETTING%
+    Let>k_ini=k_ini+1
   Until>k_ini=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
   EditIniFile>%INI_FILE_PATH%\%INI_FILE%,General,IP number,%IP_NUMBER%
   EditIniFile>%INI_FILE_PATH%\%INI_FILE%,General,ZIP results,%ZIP_RESULTS%
@@ -1057,9 +1080,9 @@ SRT>READ_SETTINGS_FILE
     Let>NO_DEFAULT_FILE_FOUND=0
     Let>k_ini=0
     Repeat>k_ini
-      Let>k_ini=k_ini+1
       ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,Checkboxes,Checkbox%k_ini%,TEMP_INI_SETTING
       Let>URL_SUB_PAGE_CHECKED_%k_ini%=TEMP_INI_SETTING
+      Let>k_ini=k_ini+1
     Until>k_ini=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
     ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,General,IP number,IP_NUMBER
     ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,General,ZIP results,ZIP_RESULTS
