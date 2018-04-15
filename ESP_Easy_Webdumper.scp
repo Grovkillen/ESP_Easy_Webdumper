@@ -1,7 +1,7 @@
 // COMPILE_OPTS|C:\Users\Jimwes\Desktop\ESP Easy Webdumper.exe|C:\Users\Jimwes\Dropbox\Diverse\ESP-projekt\ESP_Easy_Webdump\ICON.ico|CONSOLE=0|INCLUDES=1| /NOSYSTRAY|RUNTIMES=1|BMPS=1
 
 //Global variables (version is MAYOR.MINOR.MINIMAL)
-Let>VERSION=0.01.001
+Let>VERSION=0.01.002
 Let>APP_TITLE=ESP Easy Webdumper (%VERSION%)
 GoSub>STARTUP_OF_APP
 
@@ -728,7 +728,7 @@ SRT>RUN_WEBDUMPER
       WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,[%DATE% %TIME%] JOB COMPLETED, over and out!
       WriteLn>%SCRIPT_DIR%\Log\%LOG_FOLDER_NAME%\%LOG_FILE_NAME%,,%FILES_CREATED%
       GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
-      SetDialogProperty>Dialog1,LOG_WINDOW,Text,Webdump completed.%CRLF%%LOG_WINDOW_TEXT%
+      SetDialogProperty>Dialog1,LOG_WINDOW,Text,Webdump completed (%TIME_FOR_COMPLETE_SCAN%s.%CRLF%%LOG_WINDOW_TEXT%
       If>ZIP_RESULTS=True
         GoSub>ZIP_THE_RESULTS
       Endif>
@@ -1044,7 +1044,7 @@ SRT>SET_DEFAULT_DIALOG_SETTINGS
       Let>TEMP_INI_SETTING=URL_SUB_PAGE_CHECKED_%k_checkbox%
       SetDialogProperty>Dialog1,CheckBox%k_checkbox%,Checked,%TEMP_INI_SETTING%
       Let>k_checkbox=k_checkbox+1
-    Until>k_checkbox=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+    Until>k_checkbox>NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
     SetDialogProperty>Dialog1,INPUT_IP_ADDRESS,Text,%IP_NUMBER%
     SetDialogProperty>Dialog1,CheckBox_ZIPFILE,Checked,%ZIP_RESULTS%
   Endif>
@@ -1065,7 +1065,7 @@ SRT>SAVE_SETTINGS_FILE
     Let>TEMP_INI_SETTING=URL_SUB_PAGE_CHECKED_%k_ini%
     EditIniFile>%INI_FILE_PATH%\%INI_FILE%,Checkboxes,Checkbox%k_ini%,%TEMP_INI_SETTING%
     Let>k_ini=k_ini+1
-  Until>k_ini=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+  Until>k_ini>NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
   EditIniFile>%INI_FILE_PATH%\%INI_FILE%,General,IP number,%IP_NUMBER%
   EditIniFile>%INI_FILE_PATH%\%INI_FILE%,General,ZIP results,%ZIP_RESULTS%
     GetDialogProperty>Dialog1,LOG_WINDOW,Text,LOG_WINDOW_TEXT
@@ -1083,7 +1083,7 @@ SRT>READ_SETTINGS_FILE
       ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,Checkboxes,Checkbox%k_ini%,TEMP_INI_SETTING
       Let>URL_SUB_PAGE_CHECKED_%k_ini%=TEMP_INI_SETTING
       Let>k_ini=k_ini+1
-    Until>k_ini=NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
+    Until>k_ini>NUMBER_OF_MAXIMUM_FETCHINGS_TO_DO
     ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,General,IP number,IP_NUMBER
     ReadIniFile>%INI_FILE_PATH%\%INI_FILE%,General,ZIP results,ZIP_RESULTS
   Else>
